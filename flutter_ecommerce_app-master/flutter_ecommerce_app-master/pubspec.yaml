@@ -25,6 +25,12 @@ dependencies:
   cupertino_icons: ^0.1.2
   google_fonts: ^0.3.9
 
+  # shared_preferences:
+  cached_network_image: ^2.0.0-rc
+  # flutter_advanced_networkimage: ^0.6.0-alpha.1
+  # cached_network_image:
+  flutter_tts: ^0.6.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

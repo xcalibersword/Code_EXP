@@ -72,12 +72,12 @@ class _MainPageState extends State<MainPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TitleText(
-                  text: isHomePageSelected ? 'Our' : 'Shopping',
+                  text: isHomePageSelected ? 'Welcome!' : 'Upskill & Volunteer',
                   fontSize: 27,
                   fontWeight: FontWeight.w400,
                 ),
                 TitleText(
-                  text: isHomePageSelected ? 'Products' : 'Cart',
+                  text: isHomePageSelected ? 'Dashboard' : 'Courses',
                   fontSize: 27,
                   fontWeight: FontWeight.w700,
                 ),
@@ -88,7 +88,7 @@ class _MainPageState extends State<MainPage> {
                 ? Container(
                   padding: EdgeInsets.all(10),
                   child: Icon(
-                      Icons.delete_outline,
+                      Icons.local_library,
                       color: LightColor.orange,
                     ),
                 ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(13)))

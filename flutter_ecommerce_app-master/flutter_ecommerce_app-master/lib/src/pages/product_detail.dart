@@ -117,7 +117,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             fontSize: 160,
             color: LightColor.lightGrey,
           ),
-          Image.asset('assets/show_1.png')
+          Image.asset('assets/nursingassistant_1.png')
         ],
       ),
     );
@@ -128,11 +128,6 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       margin: EdgeInsets.symmetric(vertical: 0),
       width: AppTheme.fullWidth(context),
       height: 80,
-      child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:
-              AppData.showThumbnailList.map((x) => _thumbnail(x)).toList()),
     );
   }
 
@@ -200,7 +195,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      TitleText(text: "NIKE AIR MAX 200", fontSize: 25),
+                      TitleText(text: "Nursing Assistant", fontSize: 25),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
@@ -208,13 +203,9 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               TitleText(
-                                text: "\$ ",
+                                text: "16H / Week ",
                                 fontSize: 18,
                                 color: LightColor.red,
-                              ),
-                              TitleText(
-                                text: "240",
-                                fontSize: 25,
                               ),
                             ],
                           ),
@@ -261,17 +252,15 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TitleText(
-          text: "Available Size",
-          fontSize: 14,
+          text: "Pasir Ris Healthcare",
+          fontSize: 18,
         ),
         SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _sizeWidget("US 6"),
-            _sizeWidget("US 7", isSelected: true),
-            _sizeWidget("US 8"),
-            _sizeWidget("US 9"),
+
+            _sizeWidget("SIGN UP NOW", isSelected: true),
           ],
         )
       ],
@@ -303,47 +292,17 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TitleText(
-          text: "Available Size",
+          text: "Responsibilities",
           fontSize: 14,
         ),
         SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            _colorWidget(LightColor.yellowColor, isSelected: true),
-            SizedBox(
-              width: 30,
-            ),
-            _colorWidget(LightColor.lightBlue),
-            SizedBox(
-              width: 30,
-            ),
-            _colorWidget(LightColor.black),
-            SizedBox(
-              width: 30,
-            ),
-            _colorWidget(LightColor.red),
-            SizedBox(
-              width: 30,
-            ),
-            _colorWidget(LightColor.skyBlue),
-          ],
-        )
+        Text(AppData.desc1),
+        Text(AppData.desc2),
+        Text(AppData.desc3),
+        Text(AppData.desc4),
+        Text(AppData.desc5),
+        Text(AppData.desc6),
       ],
-    );
-  }
-
-  Widget _colorWidget(Color color, {bool isSelected = false}) {
-    return CircleAvatar(
-      radius: 12,
-      backgroundColor: color.withAlpha(150),
-      child: isSelected
-          ? Icon(
-              Icons.check_circle,
-              color: color,
-              size: 18,
-            )
-          : CircleAvatar(radius: 7, backgroundColor: color),
     );
   }
 
@@ -352,11 +311,18 @@ class _ProductDetailPageState extends State<ProductDetailPage>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         TitleText(
-          text: "Available Size",
+          text: "Volunteer Requirements",
           fontSize: 14,
         ),
         SizedBox(height: 20),
-        Text(AppData.description),
+        Text(AppData.req1),
+        Text(AppData.req2),
+        Text(AppData.req3),
+        Text(AppData.space),
+        Text(AppData.space),
+        Text(AppData.space),
+        Text(AppData.space),
+        Text(AppData.space),
       ],
     );
   }
@@ -365,7 +331,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     return FloatingActionButton(
       onPressed: () {},
       backgroundColor: LightColor.orange,
-      child: Icon(Icons.shopping_basket,
+      child: Icon(Icons.chat,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),
     );
   }

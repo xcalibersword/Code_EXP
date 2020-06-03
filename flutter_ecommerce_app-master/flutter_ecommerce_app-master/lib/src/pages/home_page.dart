@@ -6,6 +6,7 @@ import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/product_card.dart';
 import 'package:flutter_ecommerce_app/src/widgets/product_icon.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
+import 'package:flutter_ecommerce_app/src/widgets/customWidget.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -17,6 +18,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isViewAll = false;
   Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
     return Container(
       padding: EdgeInsets.all(10),
@@ -104,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextField(
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Search Products",
+                    hintText: "Search Opportunities/Courses",
                     hintStyle: TextStyle(fontSize: 12),
                     contentPadding:
                         EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 5),
@@ -114,6 +116,118 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(width: 20),
           _icon(Icons.filter_list, color: Colors.black54)
+        ],
+      ),
+    );
+  }
+
+  Widget _getNewsTile1(String image) {
+    return ListTile(
+        onTap: (){},
+        title: Text(
+          "Care packs to thank those in front line of Covid-19 fight",
+          style: TextStyle(fontSize: getFontSize(context,14), fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text('02 June 2020',style: TextStyle(fontSize: getFontSize(context,12)),),
+        trailing: Image.asset(
+          image,
+        ));
+  }
+
+  Widget _getNewsTile2(String image) {
+    return ListTile(
+        onTap: (){},
+        title: Text(
+          "Volunteers from all walks of life join Singapore's fight against virus",
+          style: TextStyle(fontSize: getFontSize(context,14), fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text('01 June 2020',style: TextStyle(fontSize: getFontSize(context,12)),),
+        trailing: Image.asset(
+          image,
+        ));
+  }
+
+  Widget _getNewsTile3(String image) {
+    return ListTile(
+        onTap: (){},
+        title: Text(
+          "Newcomers lend a hand in their adopted home",
+          style: TextStyle(fontSize: getFontSize(context,14), fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text('31 May 2020',style: TextStyle(fontSize: getFontSize(context,12)),),
+        trailing: Image.asset(
+          image,
+        ));
+  }
+
+  Widget _getNewsTile4(String image) {
+    return ListTile(
+        onTap: (){},
+        title: Text(
+          "We, the citizens: Immigrants, new citizens volunteer in the fight against Covid-19",
+          style: TextStyle(fontSize: getFontSize(context,14), fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text('30 May 2020',style: TextStyle(fontSize: getFontSize(context,12)),),
+        trailing: Image.asset(
+          image,
+        ));
+  }
+
+  Widget _getNewsTile5(String image) {
+    return ListTile(
+        onTap: (){},
+        title: Text(
+          "Lecturer helps deliver meals to residents breaking fast",
+          style: TextStyle(fontSize: getFontSize(context,14), fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text('18 May 2020',style: TextStyle(fontSize: getFontSize(context,12)),),
+        trailing: Image.asset(
+          image,
+        ));
+  }
+
+  Widget _volunteerNews() {
+    return AnimatedContainer(
+      curve: Curves.linearToEaseOut,
+      duration: Duration(milliseconds: 300),
+      height: isViewAll ? MediaQuery.of(context).size.height - getDimention(context, 300) : getDimention(context, 250) ,
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.bottomCenter,
+      child: ListView(
+        physics: BouncingScrollPhysics(),
+        children: <Widget>[
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 20,),
+                  child:  Text(
+                    'Volunteering News',
+                    style: TextStyle(fontSize: getFontSize(context,18), fontWeight: FontWeight.w800),
+                  ),
+                ),
+                FlatButton(
+                  child: Text(
+                    'View All',
+                    style: TextStyle(fontSize: getFontSize(context,16), color: Color(0xff6c79dc)),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isViewAll = !isViewAll;
+                      // viewAllHeight = isViewAll ?  getDimention(context, 290) : 0;
+                    });
+                  },
+                ),
+              ]),
+          _getNewsTile1('assets/news_1.png'),
+          Divider(),
+          _getNewsTile2('assets/news_2.png'),
+          Divider(),
+          _getNewsTile3('assets/news_3.png'),
+          Divider(),
+          _getNewsTile4('assets/news_4.png'),
+          Divider(),
+          _getNewsTile5('assets/news_5.png'),
         ],
       ),
     );
@@ -133,6 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _search(),
             _categoryWidget(),
             _productWidget(),
+            _volunteerNews(),
           ],
         ),
       ),

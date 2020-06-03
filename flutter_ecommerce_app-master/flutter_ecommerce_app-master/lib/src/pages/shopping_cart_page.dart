@@ -58,13 +58,13 @@ class ShoppingCartPage extends StatelessWidget {
                   subtitle: Row(
                     children: <Widget>[
                       TitleText(
-                        text: '\$ ',
+                        text: 'By ',
                         color: LightColor.red,
                         fontSize: 12,
                       ),
                       TitleText(
                         text: model.price.toString(),
-                        fontSize: 14,
+                        fontSize: 12,
                       ),
                     ],
                   ),
@@ -75,9 +75,9 @@ class ShoppingCartPage extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: LightColor.lightGrey.withAlpha(150),
                         borderRadius: BorderRadius.circular(10)),
-                    child: TitleText(
-                      text: 'x${model.id}',
-                      fontSize: 12,
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: LightColor.orange,
                     ),
                   )))
         ],
@@ -90,14 +90,10 @@ class ShoppingCartPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         TitleText(
-          text: '${AppData.cartList.length} Items',
+          text: '${AppData.cartList.length} Courses',
           color: LightColor.grey,
           fontSize: 14,
           fontWeight: FontWeight.w500,
-        ),
-        TitleText(
-          text: '\$${getPrice()}',
-          fontSize: 18,
         ),
       ],
     );
@@ -113,7 +109,7 @@ class ShoppingCartPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 12),
           width: AppTheme.fullWidth(context) * .7,
           child: TitleText(
-            text: 'Next',
+            text: 'Next Page',
             color: LightColor.background,
             fontWeight: FontWeight.w500,
           ),
@@ -123,7 +119,6 @@ class ShoppingCartPage extends StatelessWidget {
   double getPrice() {
     double price = 0;
     AppData.cartList.forEach((x) {
-      price += x.price * x.id;
     });
     return price;
   }
