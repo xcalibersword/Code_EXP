@@ -8,7 +8,7 @@ Widget customText(String msg, {TextStyle style,TextAlign textAlign = TextAlign.j
   }
   else{
     if(context != null && style != null){
-      var fontSize = style.fontSize ?? Theme.of(context).textTheme.body1.fontSize;
+      var fontSize = style.fontSize ?? Theme.of(context).textTheme.bodyText2.fontSize;
       style =  style.copyWith(fontSize: fontSize - ( fullWidth(context) <= 375  ? 2 : 0));
     }
     return Text(msg,style: style,textAlign: textAlign,overflow:overflow,);

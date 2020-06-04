@@ -5,14 +5,14 @@ import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
-class ProductDetailPage extends StatefulWidget {
-  ProductDetailPage({Key key}) : super(key: key);
+class VideoPage extends StatefulWidget {
+  VideoPage({Key key}) : super(key: key);
 
   @override
-  _ProductDetailPageState createState() => _ProductDetailPageState();
+  _VideoPageState createState() => _VideoPageState();
 }
 
-class _ProductDetailPageState extends State<ProductDetailPage>
+class _VideoPageState extends State<VideoPage>
     with TickerProviderStateMixin {
   AnimationController controller;
   Animation<double> animation;
@@ -46,18 +46,18 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             padding: 12,
             isOutLine: true,
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed("/");
             },
           ),
-          _icon(isLiked ? Icons.favorite : Icons.favorite_border,
-              color: isLiked ? LightColor.red : LightColor.lightGrey,
-              size: 15,
-              padding: 12,
-              isOutLine: false, onPressed: () {
-            setState(() {
-              isLiked = !isLiked;
-            });
-          }),
+          // _icon(isLiked ? Icons.favorite : Icons.favorite_border,
+          //     color: isLiked ? LightColor.red : LightColor.lightGrey,
+          //     size: 15,
+          //     padding: 12,
+          //     isOutLine: false, onPressed: () {
+          //   setState(() {
+          //     isLiked = !isLiked;
+          //   });
+          // }),
         ],
       ),
     );
@@ -259,8 +259,8 @@ class _ProductDetailPageState extends State<ProductDetailPage>
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-
-            _sizeWidget("SIGN UP NOW", isSelected: true),
+            _sizeWidget("JOIN COURSE", isSelected: true),
+            _sizeWidget("APPLY", isSelected: true),
           ],
         )
       ],
@@ -339,7 +339,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _flotingButton(),
+      //floatingActionButton: _flotingButton(),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
@@ -357,10 +357,10 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 children: <Widget>[
                   _appBar(),
                   _productImage(),
-                  _categoryWidget(),
+                 // _categoryWidget(),
                 ],
               ),
-              _detailWidget()
+              //_detailWidget()
             ],
           ),
         ),

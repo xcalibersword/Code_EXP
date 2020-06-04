@@ -13,11 +13,25 @@ class AppData {
         category: "Pasir Ris Health Center"),
     Product(
         id:2,
-        name: 'Project BUDDY',
+        name: 'Project Buddy',
         price: '12 Hours/Week',
         isliked: false,
         image: 'assets/projectbuddy_1.png',
         category: "Ageless Online"),
+    Product(
+        id:3,
+        name: 'Pet Shelter Caretaker',
+        price: '11 Hours/Week',
+        isliked: false,
+        image: 'assets/pet_shelter.jpg',
+        category: "SPCC Shelter"),
+    Product(
+        id:4,
+        name: 'HDB Food Distributor',
+        price: '7 Hours/Week',
+        isliked: false,
+        image: 'assets/hdb.jpg',
+        category: "Ang Mo Kio CC"),
   ];
   static List<Product> cartList = [
     Product(
@@ -45,7 +59,7 @@ class AppData {
     Product(
         id:2,
         name: 'Excel for Analysis',
-        price: 'Project ASSIST',
+        price: 'Project Assist',
         isSelected: true,
         isliked: false,
         image: 'assets/course_4.png',
@@ -60,11 +74,11 @@ class AppData {
   ];
   static List<Category> categoryList = [
     Category(),
-    Category(id:1,name: "Befriending",image: 'assets/befriend.png',isSelected: true),
-    Category(id:2,name: "Nursing", image: 'assets/nurse.png'),
-    Category(id:3,name: "Facilitation", image: 'assets/facilitator.png'),
-    Category(id:4,name: "Counselling", image: 'assets/counsel.png'),
-  ];
+    Category(id:1,name: "All", image: 'assets/counsel.png', isSelected: true),
+    Category(id:2,name: "Befriending",image: 'assets/befriend.png'),
+    Category(id:3,name: "Nursing", image: 'assets/nurse.png'),
+    Category(id:4,name: "Facilitation", image: 'assets/facilitator.png'),
+     ];
   static String desc1 = "• Provide coordination and support to assigned nurses";
   static String desc2 = "• Perform basic nursing procedures to assigned patients";
   static String desc3 = "• Attend to patients needs (such as bathing, grooming and feeding)";

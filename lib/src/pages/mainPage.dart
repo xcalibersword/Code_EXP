@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/src/pages/home_page.dart';
+import 'package:flutter_ecommerce_app/src/pages/inbox.dart';
+import 'package:flutter_ecommerce_app/src/pages/profile.dart';
 import 'package:flutter_ecommerce_app/src/pages/shopping_cart_page.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
@@ -18,16 +20,20 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   bool isHomePageSelected = true;
+  bool isInboxPageSelected = false;
+  bool isCartPageSelected = false;
+  bool isProfilePageSelected = false;
+
   Widget _appBar() {
     return Container(
       padding: AppTheme.padding,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          RotatedBox(
-            quarterTurns: 4,
-            child: _icon(Icons.sort, color: Colors.black54),
-          ),
+          // RotatedBox(
+          //   quarterTurns: 4,
+          //   child: _icon(Icons.sort, color: Colors.black54),
+          // ),
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(13)),
             child: Container(
@@ -40,7 +46,7 @@ class _MainPageState extends State<MainPage> {
                       spreadRadius: 10),
                 ],
               ),
-              child: Image.asset("assets/user.png"),
+              // child: Image.asset("assets/user.png"),
             ),
           ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(13)))
         ],
@@ -72,15 +78,16 @@ class _MainPageState extends State<MainPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TitleText(
-                  text: isHomePageSelected ? 'Welcome!' : 'Upskill & Volunteer',
-                  fontSize: 27,
-                  fontWeight: FontWeight.w400,
-                ),
-                TitleText(
-                  text: isHomePageSelected ? 'Dashboard' : 'Courses',
-                  fontSize: 27,
+                  text: isHomePageSelected ? 'Welcome!' : 'Course Applied',
+                  fontSize: 25,
                   fontWeight: FontWeight.w700,
                 ),
+                // TitleText(
+                //   text: isHomePageSelected ? 'Look for the courses that you will be interested in here!' : 'Courses',
+                //   fontSize: 13,
+                //   fontWeight: FontWeight.w400,
+                  
+                // ),
               ],
             ),
             Spacer(),
@@ -98,15 +105,36 @@ class _MainPageState extends State<MainPage> {
   }
 
   void onBottomIconPressed(int index) {
-    if (index == 0 || index == 1) {
+    if (index == 0) {
       setState(() {
         isHomePageSelected = true;
+        isInboxPageSelected = false;
+        isCartPageSelected = false;
+        isProfilePageSelected = false;
       });
-    } else {
+    } else if(index == 1){
       setState(() {
         isHomePageSelected = false;
+        isInboxPageSelected = true;
+        isCartPageSelected = false;
+        isProfilePageSelected = false;
+      });
+    }else if(index == 2){
+      setState(() {
+        isHomePageSelected = false;
+        isInboxPageSelected = false;
+        isCartPageSelected = true;
+        isProfilePageSelected = false;
+      });
+    }else{
+      setState(() {
+        isHomePageSelected = false;
+        isInboxPageSelected = false;
+        isCartPageSelected = false;
+        isProfilePageSelected = true;
       });
     }
+
   }
 
   @override
@@ -139,12 +167,24 @@ class _MainPageState extends State<MainPage> {
                         duration: Duration(milliseconds: 300),
                         switchInCurve: Curves.easeInToLinear,
                         switchOutCurve: Curves.easeOutBack,
-                        child: isHomePageSelected
-                            ? MyHomePage()
-                            : Align(
+                        child:                     
+                        isHomePageSelected ? MyHomePage() :Align(
                                 alignment: Alignment.topCenter,
                                 child: ShoppingCartPage(),
                               ),
+
+                            // : isInboxPageSelected ? Align(
+                            //     alignment: Alignment.topCenter,
+                            //     child: InboxPage(),
+                            //   )
+                            // : isCartPageSelected ? Align(
+                            //     alignment: Alignment.topCenter,
+                            //     child: ShoppingCartPage(),
+                            //   )
+                            // : isProfilePageSelected ? Align(
+                            //     alignment: Alignment.topCenter,
+                            //     child: ProfilePage(),
+                            //   ),
                       ),
                     )
                   ],

@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextField(
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Search Opportunities/Courses",
+                    hintText: "Search",
                     hintStyle: TextStyle(fontSize: 12),
                     contentPadding:
                         EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 5),
@@ -114,8 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          SizedBox(width: 20),
-          _icon(Icons.filter_list, color: Colors.black54)
+          SizedBox(),
+          // _icon(Icons.filter_list, color: Colors.black54)
         ],
       ),
     );
